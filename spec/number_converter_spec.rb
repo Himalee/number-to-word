@@ -23,4 +23,14 @@ describe NumberConverter do
 		expect(@number_converter.convert(99)).to eq("ninety-nine")
 		expect(@number_converter.convert(100)).to eq("one hundred")
 	end
+
+	it "returns word for numbers 101-1000" do
+		expect(@number_converter.convert(105)).to eq("one hundred and five")
+		expect(@number_converter.convert(111)).to eq("one hundred and eleven")
+		expect(@number_converter.convert(118)).to eq("one hundred and eighteen")
+		expect(@number_converter.convert(326)).to eq("three hundred and twenty six")
+		expect(@number_converter.convert(502)).to eq("five hundred and two")
+		expect(@number_converter.convert(999)).to eq("nine hundred and ninety nine")
+		expect(@number_converter.convert(1000)).to eq("one thousand")
+	end
 end
