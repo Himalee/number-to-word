@@ -45,7 +45,7 @@ class NumberConverter
     elsif number > 20 && digits[1] != 0
       first_digit = digits[0]
       second_digit = digits[1]
-      "#{NUMBER_IN_WORDS[first_digit * 10]}-#{NUMBER_IN_WORDS[second_digit]}"
+      last_part_of_word(first_digit, second_digit)
     else
       NUMBER_IN_WORDS[number]
     end
@@ -53,16 +53,16 @@ class NumberConverter
 
   private
 
-  def last_part_of_word(second_digit, third_digit)
-    if second_digit == 1
-      last_two_digits = [second_digit, third_digit].join.to_i
+  def last_part_of_word(penultimate_digit, last_digit)
+    if penultimate_digit == 1
+      last_two_digits = [penultimate_digit, last_digit].join.to_i
       NUMBER_IN_WORDS[last_two_digits]
-    elsif second_digit.zero?
-      NUMBER_IN_WORDS[third_digit]
-    elsif third_digit.zero?
-      NUMBER_IN_WORDS[second_digit * 10]
+    elsif penultimate_digit.zero?
+      NUMBER_IN_WORDS[last_digit]
+    elsif last_digit.zero?
+      NUMBER_IN_WORDS[penultimate_digit * 10]
     else
-      "#{NUMBER_IN_WORDS[second_digit * 10]}-#{NUMBER_IN_WORDS[third_digit]}"
+      "#{NUMBER_IN_WORDS[penultimate_digit * 10]}-#{NUMBER_IN_WORDS[last_digit]}"
     end
   end
 end
