@@ -1,4 +1,5 @@
 require 'number_converter'
+
 describe NumberConverter do
 	before(:each) do
 		@number_converter = NumberConverter.new
