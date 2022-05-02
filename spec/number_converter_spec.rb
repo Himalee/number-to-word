@@ -31,9 +31,9 @@ describe NumberConverter do
     expect(@number_converter.convert(411)).to eq('four hundred and eleven')
     expect(@number_converter.convert(111)).to eq('one hundred and eleven')
     expect(@number_converter.convert(218)).to eq('two hundred and eighteen')
-    expect(@number_converter.convert(326)).to eq('three hundred and twenty six')
+    expect(@number_converter.convert(326)).to eq('three hundred and twenty-six')
     expect(@number_converter.convert(502)).to eq('five hundred and two')
-    expect(@number_converter.convert(999)).to eq('nine hundred and ninety nine')
+    expect(@number_converter.convert(999)).to eq('nine hundred and ninety-nine')
     expect(@number_converter.convert(1000)).to eq('one thousand')
   end
 end

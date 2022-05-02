@@ -62,7 +62,7 @@ class NumberConverter
     elsif third_digit.zero?
       NUMBER_IN_WORDS[second_digit * 10]
     else
-      "#{NUMBER_IN_WORDS[second_digit * 10]} #{NUMBER_IN_WORDS[third_digit]}"
+      "#{NUMBER_IN_WORDS[second_digit * 10]}-#{NUMBER_IN_WORDS[third_digit]}"
     end
   end
 end
