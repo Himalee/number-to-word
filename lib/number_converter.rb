@@ -43,7 +43,7 @@ class NumberConverter
     else
       third_digit = digits[2]
       word << "#{NUMBER_IN_WORDS[first_digit]} hundred"
-      if !second_digit.zero? || !third_digit.zero?
+      unless number_ends_in_zeros?(digits)
         word << ' and '
         word << last_part_of_word(second_digit, third_digit)
       end
@@ -53,6 +53,11 @@ class NumberConverter
   end
 
   private
+
+  def number_ends_in_zeros?(digits)
+    last_digits = digits.drop(1)
+    last_digits.all?(&:zero?)
+  end
 
   def last_part_of_word(penultimate_digit, last_digit)
     if penultimate_digit == 1
