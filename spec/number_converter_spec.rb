@@ -27,10 +27,10 @@ describe NumberConverter do
 
   it 'returns word for numbers 101-1000' do
     expect(@number_converter.convert(105)).to eq('one hundred and five')
-    expect(@number_converter.convert(210)).to eq('two hundred and ten')
-    expect(@number_converter.convert(411)).to eq('four hundred and eleven')
     expect(@number_converter.convert(111)).to eq('one hundred and eleven')
+    expect(@number_converter.convert(210)).to eq('two hundred and ten')
     expect(@number_converter.convert(218)).to eq('two hundred and eighteen')
+    expect(@number_converter.convert(413)).to eq('four hundred and thirteen')
     expect(@number_converter.convert(326)).to eq('three hundred and twenty-six')
     expect(@number_converter.convert(502)).to eq('five hundred and two')
     expect(@number_converter.convert(999)).to eq('nine hundred and ninety-nine')
