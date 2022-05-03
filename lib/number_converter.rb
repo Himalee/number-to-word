@@ -32,23 +32,24 @@ class NumberConverter
 
   def convert(number)
     digits = number.digits.reverse
+    word = ''
 
-    if digits.count == 3 && (digits[1]).zero? && (digits[2]).zero?
-      first_digit = digits[0]
-      "#{NUMBER_IN_WORDS[first_digit]} hundred"
-    elsif digits.count == 3
-      first_digit = digits[0]
-      second_digit = digits[1]
-      third_digit = digits[2]
-      last_part_of_word = last_part_of_word(second_digit, third_digit)
-      "#{NUMBER_IN_WORDS[first_digit]} hundred and #{last_part_of_word}"
-    elsif number > 20 && digits[1] != 0
-      first_digit = digits[0]
-      second_digit = digits[1]
-      last_part_of_word(first_digit, second_digit)
+    return NUMBER_IN_WORDS[number] if NUMBER_IN_WORDS.key?(number)
+
+    first_digit = digits[0]
+    second_digit = digits[1]
+    if digits.count == 2
+      word << last_part_of_word(first_digit, second_digit)
     else
-      NUMBER_IN_WORDS[number]
+      third_digit = digits[2]
+      word << "#{NUMBER_IN_WORDS[first_digit]} hundred"
+      if !second_digit.zero? || !third_digit.zero?
+        word << ' and '
+        word << last_part_of_word(second_digit, third_digit)
+      end
     end
+
+    word
   end
 
   private
