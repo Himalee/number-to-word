@@ -32,21 +32,18 @@ class NumberConverter
 
   def convert(number)
     digits = number.digits.reverse
+    first_digit = digits[0]
+    second_digit = digits[1]
     word = ''
 
     return NUMBER_IN_WORDS[number] if NUMBER_IN_WORDS.key?(number)
+    return last_part_of_word(first_digit, second_digit) if digits.count == 2
 
-    first_digit = digits[0]
-    second_digit = digits[1]
-    if digits.count == 2
-      word << last_part_of_word(first_digit, second_digit)
-    else
-      third_digit = digits[2]
-      word << "#{NUMBER_IN_WORDS[first_digit]} hundred"
-      unless number_ends_in_zeros?(digits)
-        word << ' and '
-        word << last_part_of_word(second_digit, third_digit)
-      end
+    third_digit = digits[2]
+    word << "#{NUMBER_IN_WORDS[first_digit]} hundred"
+    unless number_ends_in_zeros?(digits)
+      word << ' and '
+      word << last_part_of_word(second_digit, third_digit)
     end
 
     word
